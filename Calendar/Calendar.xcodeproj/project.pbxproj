@@ -13,16 +13,16 @@
 		B66E1C5A262F7F2C002264DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66E1C58262F7F2C002264DF /* Main.storyboard */; };
 		B66E1C5C262F7F2E002264DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B66E1C5B262F7F2E002264DF /* Assets.xcassets */; };
 		B66E1C5F262F7F2E002264DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66E1C5D262F7F2E002264DF /* LaunchScreen.storyboard */; };
-		B66E1C95262F8BE2002264DF /* WayCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66E1C8E262F8A3D002264DF /* WayCalendar.framework */; };
-		B66E1C96262F8BE2002264DF /* WayCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B66E1C8E262F8A3D002264DF /* WayCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B66E1CA6262F9CB0002264DF /* WayCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66E1CA5262F9CA9002264DF /* WayCalendar.framework */; };
+		B66E1CA7262F9CB0002264DF /* WayCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B66E1CA5262F9CA9002264DF /* WayCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B66E1C8D262F8A3D002264DF /* PBXContainerItemProxy */ = {
+		B66E1CA4262F9CA9002264DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B66E1C89262F8A3D002264DF /* WayCalendar.xcodeproj */;
+			containerPortal = B66E1CA0262F9CA9002264DF /* WayCalendar.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = B66E1C3A262F7E21002264DF;
+			remoteGlobalIDString = B66E1C24262F7DF1002264DF;
 			remoteInfo = WayCalendar;
 		};
 /* End PBXContainerItemProxy section */
@@ -34,7 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B66E1C96262F8BE2002264DF /* WayCalendar.framework in Embed Frameworks */,
+				B66E1CA7262F9CB0002264DF /* WayCalendar.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +50,7 @@
 		B66E1C5B262F7F2E002264DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B66E1C5E262F7F2E002264DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B66E1C60262F7F2E002264DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B66E1C89262F8A3D002264DF /* WayCalendar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WayCalendar.xcodeproj; path = ../../WayCalendar/WayCalendar.xcodeproj; sourceTree = "<group>"; };
+		B66E1CA0262F9CA9002264DF /* WayCalendar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WayCalendar.xcodeproj; path = ../../WayCalendar/WayCalendar.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B66E1C95262F8BE2002264DF /* WayCalendar.framework in Frameworks */,
+				B66E1CA6262F9CB0002264DF /* WayCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 		B66E1C51262F7F2C002264DF /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				B66E1C89262F8A3D002264DF /* WayCalendar.xcodeproj */,
+				B66E1CA0262F9CA9002264DF /* WayCalendar.xcodeproj */,
 				B66E1C52262F7F2C002264DF /* AppDelegate.swift */,
 				B66E1C54262F7F2C002264DF /* SceneDelegate.swift */,
 				B66E1C56262F7F2C002264DF /* ViewController.swift */,
@@ -104,10 +104,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B66E1C8A262F8A3D002264DF /* Products */ = {
+		B66E1CA1262F9CA9002264DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B66E1C8E262F8A3D002264DF /* WayCalendar.framework */,
+				B66E1CA5262F9CA9002264DF /* WayCalendar.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B66E1C8A262F8A3D002264DF /* Products */;
-					ProjectRef = B66E1C89262F8A3D002264DF /* WayCalendar.xcodeproj */;
+					ProductGroup = B66E1CA1262F9CA9002264DF /* Products */;
+					ProjectRef = B66E1CA0262F9CA9002264DF /* WayCalendar.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -172,11 +172,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B66E1C8E262F8A3D002264DF /* WayCalendar.framework */ = {
+		B66E1CA5262F9CA9002264DF /* WayCalendar.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = WayCalendar.framework;
-			remoteRef = B66E1C8D262F8A3D002264DF /* PBXContainerItemProxy */;
+			remoteRef = B66E1CA4262F9CA9002264DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B66E1C29262F7DF1002264DF /* WayCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = B66E1C27262F7DF1002264DF /* WayCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B66E1CB1262F9E03002264DF /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E1CB0262F9E03002264DF /* DayCell.swift */; };
+		B66E1CB2262F9E03002264DF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E1CAD262F9E02002264DF /* Info.swift */; };
+		B66E1CB3262F9E03002264DF /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E1CAE262F9E02002264DF /* MonthCell.swift */; };
+		B66E1CB4262F9E03002264DF /* WayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E1CAF262F9E02002264DF /* WayCalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B66E1C24262F7DF1002264DF /* WayCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WayCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66E1C27262F7DF1002264DF /* WayCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WayCalendar.h; sourceTree = "<group>"; };
 		B66E1C28262F7DF1002264DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B66E1CAD262F9E02002264DF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		B66E1CAE262F9E02002264DF /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		B66E1CAF262F9E02002264DF /* WayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayCalendarView.swift; sourceTree = "<group>"; };
+		B66E1CB0262F9E03002264DF /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,10 @@
 		B66E1C26262F7DF1002264DF /* WayCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				B66E1CB0262F9E03002264DF /* DayCell.swift */,
+				B66E1CAD262F9E02002264DF /* Info.swift */,
+				B66E1CAE262F9E02002264DF /* MonthCell.swift */,
+				B66E1CAF262F9E02002264DF /* WayCalendarView.swift */,
 				B66E1C27262F7DF1002264DF /* WayCalendar.h */,
 				B66E1C28262F7DF1002264DF /* Info.plist */,
 			);
@@ -130,6 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66E1CB3262F9E03002264DF /* MonthCell.swift in Sources */,
+				B66E1CB1262F9E03002264DF /* DayCell.swift in Sources */,
+				B66E1CB4262F9E03002264DF /* WayCalendarView.swift in Sources */,
+				B66E1CB2262F9E03002264DF /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
