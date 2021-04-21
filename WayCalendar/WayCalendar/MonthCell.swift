@@ -17,6 +17,10 @@ class MonthCell: UICollectionViewCell {
         return collectionView
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView.backgroundColor = .clear
