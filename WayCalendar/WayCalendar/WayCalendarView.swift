@@ -17,6 +17,7 @@ public class WayCalendarView: UIView {
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = false
         return collectionView
     }()
     
@@ -116,8 +117,9 @@ extension WayCalendarView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     private func didScroll(_ visibleItems: [NSCollectionLayoutVisibleItem], offset: CGFloat) {
-        if offset.truncatingRemainder(dividingBy: frame.width) == 0 {
-            let index = Int(offset / frame.width)
+//        if offset.truncatingRemainder(dividingBy: frame.width) == 0 {
+        let remainder = offset.truncatingRemainder(dividingBy: frame.width)
+        let index = Int(offset / frame.width) + (remainder > frame.width / 2 ? 1 : 0)
             var text = ""
             
             let month = Months(rawValue: index + 1)
@@ -152,6 +154,6 @@ extension WayCalendarView: UICollectionViewDelegate, UICollectionViewDataSource,
             }
             
             currentMonthLabel.text = text
-        }
+//        }
     }
 }
