@@ -15,10 +15,8 @@ public class WayCalendarView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
-//        collectionView.isPagingEnabled = true
         return collectionView
     }()
     
@@ -38,6 +36,7 @@ public class WayCalendarView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(DayCell.self, forCellWithReuseIdentifier: "day")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "placeholder")
         
         currentMonthLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(currentMonthLabel)
@@ -56,17 +55,40 @@ public class WayCalendarView: UIView {
     
     private func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 7),
-                                                  heightDimension: .fractionalHeight(1 / 5))
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1 / 7),
+                heightDimension: .fractionalHeight(1)
+            )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                   heightDimension: .fractionalHeight(1))
             
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 35)
+            var groups: [NSCollectionLayoutGroup] = []
             
-            let section = NSCollectionLayoutSection(group: group)
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1 / 5)
+            )
+            
+            for _ in 1...5 {
+                let group = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: groupSize,
+                    subitems: [item]
+                )
+                groups.append(group)
+            }
+            
+            let mainGroupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1)
+            )
+            
+            let mainGroup = NSCollectionLayoutGroup.vertical(layoutSize: mainGroupSize, subitems: groups)
+            
+            let section = NSCollectionLayoutSection(group: mainGroup)
             section.orthogonalScrollingBehavior = .groupPaging
+            section.visibleItemsInvalidationHandler = { [weak self] visibleItems, point, environment in
+                self?.didScroll(visibleItems, offset: point.x)
+            }
             return section
         }
         return layout
@@ -75,38 +97,61 @@ public class WayCalendarView: UIView {
 
 extension WayCalendarView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 35 * 12
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day", for: indexPath) as! DayCell
-        cell.numberLabel.text = "\(indexPath.row)"
-        return cell
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        let day = (indexPath.item + 1) % 35
+        if day > 4 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day", for: indexPath) as! DayCell
+            cell.numberLabel.text = "\((indexPath.item + 1) % 35 - 4)"
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeholder", for: indexPath)
+            return cell
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! DayCell
-        UIView.animate(withDuration: 0.2) {
-            cell.backView.backgroundColor = .systemBlue
-            cell.numberLabel.textColor = .systemBackground
-            cell.numberLabel.font = .systemFont(ofSize: 17, weight: .bold)
-        }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! DayCell
-        UIView.animate(withDuration: 0.2) {
-            cell.backView.backgroundColor = .systemBackground
-            cell.numberLabel.textColor = .secondaryLabel
-            cell.numberLabel.font = .systemFont(ofSize: 17, weight: .medium)
+    private func didScroll(_ visibleItems: [NSCollectionLayoutVisibleItem], offset: CGFloat) {
+        if offset.truncatingRemainder(dividingBy: frame.width) == 0 {
+            let index = Int(offset / frame.width)
+            var text = ""
+            
+            let month = Months(rawValue: index + 1)
+            
+            switch month {
+            case .april:
+                text = "April, 2021"
+            case .none:
+                text = ""
+            case .some(.january):
+                text = "January, 2021"
+            case .some(.febrary):
+                text = "Febrary, 2021"
+            case .some(.march):
+                text = "March, 2021"
+            case .some(.may):
+                text = "May, 2021"
+            case .some(.june):
+                text = "June, 2021"
+            case .some(.july):
+                text = "July, 2021"
+            case .some(.august):
+                text = "August, 2021"
+            case .some(.september):
+                text = "September, 2021"
+            case .some(.october):
+                text = "October, 2021"
+            case .some(.november):
+                text = "November, 2021"
+            case .some(.december):
+                text = "December, 2021"
+            }
+            
+            currentMonthLabel.text = text
         }
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

@@ -9,6 +9,24 @@ import UIKit
 
 class DayCell: UICollectionViewCell {
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                UIView.animate(withDuration: 0.2) {
+                    self.backView.backgroundColor = .systemBlue
+                    self.numberLabel.textColor = .systemBackground
+                    self.numberLabel.font = .systemFont(ofSize: 17, weight: .bold)
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.backView.backgroundColor = .systemBackground
+                    self.numberLabel.textColor = .secondaryLabel
+                    self.numberLabel.font = .systemFont(ofSize: 17, weight: .medium)
+                }
+            }
+        }
+    }
+    
     let backView = UIView()
     
     let numberLabel = UILabel()
